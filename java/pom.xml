@@ -3,12 +3,12 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.mydotey.scf.labeled</groupId>
-    <artifactId>parent</artifactId>
-    <version>1.0.0</version>
-    <packaging>pom</packaging>
-    <name>parent</name>
-    <description>scf labeled parent</description>
+    <groupId>org.mydotey.scf</groupId>
+    <artifactId>scf-labeled</artifactId>
+    <version>1.4.0</version>
+    <packaging>jar</packaging>
+    <name>scf-labeled</name>
+    <description>simple configuration facade labeled usage</description>
     <url>https://github.com/mydotey/scf-labeled</url>
 
     <licenses>
@@ -42,7 +42,8 @@
         <java.version>1.8</java.version>
         <source.encoding>UTF-8</source.encoding>
         <slf4j.version>1.7.21</slf4j.version>
-        <scf.version>1.3.0</scf.version>
+        <scf.version>1.4.0</scf.version>
+        <scf-simple.version>1.4.2</scf-simple.version>
         <guava.version>19.0</guava.version>
         <junit.version>4.12</junit.version>
         <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
@@ -52,10 +53,6 @@
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <nexus-staging-plugin.version>1.6.7</nexus-staging-plugin.version>
     </properties>
-
-    <modules>
-        <module>scf-labeled</module>
-    </modules>
 
     <dependencyManagement>
         <dependencies>
@@ -72,14 +69,9 @@
             <dependency>
                 <groupId>org.mydotey.scf</groupId>
                 <artifactId>scf-simple</artifactId>
-                <version>${scf.version}</version>
+                <version>${scf-simple.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.mydotey.scf.labeled</groupId>
-                <artifactId>scf-labeled</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-           <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
@@ -107,10 +99,52 @@
                 <groupId>org.mydotey.scf</groupId>
                 <artifactId>scf-simple</artifactId>
                 <type>test-jar</type>
-                <version>${scf.version}</version>
+                <version>${scf-simple.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mydotey.scf</groupId>
+            <artifactId>scf-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mydotey.scf</groupId>
+            <artifactId>scf-simple</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mydotey.scf</groupId>
+            <artifactId>scf-core</artifactId>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mydotey.scf</groupId>
+            <artifactId>scf-simple</artifactId>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>

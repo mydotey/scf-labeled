@@ -8,15 +8,10 @@ import org.mydotey.scf.labeled.LabeledKey;
  *
  * May 21, 2018
  */
-public class LabeledStringProperties extends StringValueProperties<LabeledKey<String>> {
+public class LabeledStringProperties extends StringValueProperties<LabeledKey<String>, LabeledConfigurationManager> {
 
     public LabeledStringProperties(LabeledConfigurationManager manager) {
         super(manager);
-    }
-
-    @Override
-    public LabeledConfigurationManager getManager() {
-        return (LabeledConfigurationManager) super.getManager();
     }
 
 }

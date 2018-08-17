@@ -13,8 +13,8 @@ import org.mydotey.scf.facade.ConfigurationProperties;
  *
  * May 16, 2018
  */
-public abstract class AbstractLabeledConfigurationSource extends AbstractConfigurationSource
-        implements LabeledConfigurationSource {
+public abstract class AbstractLabeledConfigurationSource<C extends ConfigurationSourceConfig>
+        extends AbstractConfigurationSource<C> implements LabeledConfigurationSource {
 
     static <K, V> PropertyConfig<K, V> removeLabels(PropertyConfig<LabeledKey<K>, V> config) {
         return ConfigurationProperties.<K, V> newConfigBuilder().setKey(config.getKey().getKey())
@@ -22,7 +22,7 @@ public abstract class AbstractLabeledConfigurationSource extends AbstractConfigu
                 .addValueConverters(config.getValueConverters()).setValueFilter(config.getValueFilter()).build();
     }
 
-    public AbstractLabeledConfigurationSource(ConfigurationSourceConfig config) {
+    public AbstractLabeledConfigurationSource(C config) {
         super(config);
     }
 

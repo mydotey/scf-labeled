@@ -4,9 +4,9 @@
 
 ```xml
 <dependency>
-    <groupId>org.mydotey.scf.labeled</groupId>
+    <groupId>org.mydotey.scf</groupId>
     <artifactId>scf-labeled</artifactId>
-    <version>1.0.0</version>
+    <version>1.4.0</version>
 </dependency>
 ```
 

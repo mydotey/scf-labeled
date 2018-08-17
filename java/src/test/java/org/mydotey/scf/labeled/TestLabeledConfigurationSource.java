@@ -12,7 +12,7 @@ import org.mydotey.scf.ConfigurationSourceConfig;
  *
  * May 17, 2018
  */
-public class TestLabeledConfigurationSource extends AbstractLabeledConfigurationSource {
+public class TestLabeledConfigurationSource extends AbstractLabeledConfigurationSource<ConfigurationSourceConfig> {
 
     protected Map<TestDataCenterSetting, TestDataCenterSetting> _settings;
 
