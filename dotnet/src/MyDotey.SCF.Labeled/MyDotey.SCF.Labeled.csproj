@@ -5,9 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MyDotey.SCF" Version="1.4.1" />
-    <PackageReference Include="MyDotey.SCF.Simple" Version="1.4.2" />
+    <PackageReference Include="MyDotey.SCF" Version="1.4.2" />
+    <PackageReference Include="MyDotey.SCF.Simple" Version="1.4.3" />
     <PackageReference Include="NLog" Version="4.5.0" />
+    <PackageReference Include="System.Collections.Immutable" Version="1.5.0" />
   </ItemGroup>
 
 </Project>
