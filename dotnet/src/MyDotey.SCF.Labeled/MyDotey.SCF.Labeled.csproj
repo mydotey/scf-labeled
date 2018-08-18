@@ -2,6 +2,22 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyTitle>MyDotey.SCF.Labeled</AssemblyTitle>
+    <AssemblyName>MyDotey.SCF.Labeled</AssemblyName>
+    <PackageId>MyDotey.SCF.Labeled</PackageId>
+    <Version>1.4.0</Version>
+    <Authors>koqizhao</Authors>
+    <Description>for scf labeled usage</Description>
+    <Copyright>koqizhao</Copyright>
+
+    <PackageTags>scf;configuration;facade;labeled</PackageTags>
+    <PackageReleaseNotes>for scf labeled usage</PackageReleaseNotes>
+    <PackageIconUrl>http://numl.net/images/ico.png</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/mydotey/scf-labeled</PackageProjectUrl>
+    <PackageLicenseUrl>https://opensource.org/licenses/Apache-2.0</PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/mydotey/scf-labeled.git</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
