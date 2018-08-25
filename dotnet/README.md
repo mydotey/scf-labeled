@@ -3,7 +3,7 @@
 ## NuGet Package
 
 ```sh
-dotnet add package MyDotey.SCF.Labeled -v 1.4.0
+dotnet add package MyDotey.SCF.Labeled -v 1.4.1
 ```
 
 ## Usage
@@ -313,7 +313,7 @@ public class LabeledPropertyComponent
         allLabels.Add(appLabel);
 
         PropertyLabels alternative1 =
-            LabeledConfigurationProperties.NewLabels(dcLabels, PropertyLabels.EMPTY);
+            LabeledConfigurationProperties.NewLabels(dcLabels, PropertyLabels.Empty);
         PropertyLabels alternative2 = LabeledConfigurationProperties.NewLabels(appLabels, alternative1);
         _propertyLabels = LabeledConfigurationProperties.NewLabels(allLabels, alternative2);
     }

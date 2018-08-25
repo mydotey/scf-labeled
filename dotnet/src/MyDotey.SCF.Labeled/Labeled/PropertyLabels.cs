@@ -14,7 +14,7 @@ namespace MyDotey.SCF.Labeled
         /**
          * empty labels and no altenative
          */
-        public static readonly PropertyLabels EMPTY = new Empty();
+        public static readonly PropertyLabels Empty = new EmptyPropertyLabels();
 
         /**
          * labels
@@ -28,7 +28,7 @@ namespace MyDotey.SCF.Labeled
          */
         public abstract PropertyLabels Alternative { get; }
 
-        private class Empty : PropertyLabels
+        private class EmptyPropertyLabels : PropertyLabels
         {
             private ICollection<IPropertyLabel> _labels = ImmutableList.CreateBuilder<IPropertyLabel>().ToImmutable();
 

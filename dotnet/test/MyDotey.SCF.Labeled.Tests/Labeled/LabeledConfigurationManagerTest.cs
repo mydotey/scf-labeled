@@ -120,7 +120,7 @@ namespace MyDotey.SCF.Labeled
             labels = new List<IPropertyLabel>();
             labels.Add(LabeledConfigurationProperties.NewLabel(TestDataCenterSetting.DC_KEY, "sh-1-not-exist"));
             labels.Add(LabeledConfigurationProperties.NewLabel(TestDataCenterSetting.APP_KEY, "app-1"));
-            propertyLabels = LabeledConfigurationProperties.NewLabels(labels, PropertyLabels.EMPTY);
+            propertyLabels = LabeledConfigurationProperties.NewLabels(labels, PropertyLabels.Empty);
             key = LabeledConfigurationProperties.NewKeyBuilder<string>().SetKey("labeled-key-1")
                         .SetPropertyLabels(propertyLabels).Build();
             propertyConfig = ConfigurationProperties.NewConfigBuilder<LabeledKey<string>, string>().SetKey(key)
@@ -128,6 +128,39 @@ namespace MyDotey.SCF.Labeled
             property = manager.GetProperty(propertyConfig);
             Console.WriteLine(property);
             Assert.Equal("v-0-2", property.Value);
+        }
+
+        [Fact]
+        public virtual void TestGetLabeledPropertyValuePerf()
+        {
+            ConfigurationSourceConfig config = ConfigurationSources.NewConfig("labeled-source");
+            TestLabeledConfigurationSource labeledSource = CreateLabeledSource(config);
+            config = ConfigurationSources.NewConfig("dynamic-labeled-source");
+            TestDynamicLabeledConfigurationSource dynamicLabeledSource = CreateDynamicLabeledSource(config);
+            ILabeledConfigurationManager manager = CreateLabeledManager(
+                    new Dictionary<int, IConfigurationSource>() { { 1, labeledSource }, { 2, dynamicLabeledSource } });
+
+            List<IPropertyLabel> labels = new List<IPropertyLabel>();
+            labels.Add(LabeledConfigurationProperties.NewLabel(TestDataCenterSetting.DC_KEY, "sh-1"));
+            labels.Add(LabeledConfigurationProperties.NewLabel(TestDataCenterSetting.APP_KEY, "app-1"));
+            PropertyLabels propertyLabels = LabeledConfigurationProperties.NewLabels(labels);
+            LabeledKey<string> key = LabeledConfigurationProperties.NewKeyBuilder<string>().SetKey("labeled-key-1")
+                    .SetPropertyLabels(propertyLabels).Build();
+            PropertyConfig<LabeledKey<string>, string> propertyConfig = ConfigurationProperties
+                    .NewConfigBuilder<LabeledKey<string>, string>().SetKey(key).SetDefaultValue("default-value-1").Build();
+            String propertyValue = manager.GetPropertyValue(propertyConfig);
+            Assert.Equal("v-1-2", propertyValue);
+
+            int times = 100 * 1000;
+            DateTime start = DateTime.Now;
+            for (int i = 0; i < times; i++)
+            {
+                propertyValue = manager.GetPropertyValue(propertyConfig);
+            }
+            DateTime end = DateTime.Now;
+            TimeSpan elipsed = end - start;
+            Console.WriteLine("{0} times GetPropertyValue, total time: {1}, avg time: {2}",
+                times, elipsed.TotalMilliseconds, (double) elipsed.TotalMilliseconds / times);
         }
     }
 }

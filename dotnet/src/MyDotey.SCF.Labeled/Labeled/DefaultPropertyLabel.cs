@@ -61,7 +61,7 @@ namespace MyDotey.SCF.Labeled
 
         public override string ToString()
         {
-            return string.Format("{0} {{ key: {1}, value: {1} } }", GetType().Name, _key, _value);
+            return string.Format("{0} {{ key: {1}, value: {2} }}", GetType().Name, _key, _value);
         }
     }
 }

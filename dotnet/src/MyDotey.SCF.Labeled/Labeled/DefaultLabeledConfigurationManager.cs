@@ -15,7 +15,7 @@ namespace MyDotey.SCF.Labeled
      */
     public class DefaultLabeledConfigurationManager : DefaultConfigurationManager, ILabeledConfigurationManager
     {
-        private static readonly Logger LOGGER = LogManager.GetCurrentClassLogger(typeof(DefaultLabeledConfigurationManager));
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger(typeof(DefaultLabeledConfigurationManager));
 
         private MethodInfo NoLabelGetPropertyValueMethod = null;
         private MethodInfo LabeledGetPropertyValueMethod = null;
@@ -79,9 +79,9 @@ namespace MyDotey.SCF.Labeled
             catch (Exception e)
             {
                 string message = string.Format(
-                        "error occurred when getting property value, ignore the source. source: {0}, propertyConfig: {2}",
+                        "error occurred when getting property value, ignore the source. source: {0}, propertyConfig: {1}",
                         source, propertyConfig);
-                LOGGER.Error(e, message);
+                Logger.Error(e, message);
             }
 
             return value;
