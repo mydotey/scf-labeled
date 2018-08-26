@@ -6,6 +6,12 @@
 dotnet add package MyDotey.SCF.Labeled -v 1.4.1
 ```
 
+Or use a single meta package
+
+```sh
+dotnet add package MyDotey.SCF.Bom -v 1.4.0
+```
+
 ## Usage
 
 Code comes from [scf-best-practice](https://github.com/mydotey/scf-best-practice):
