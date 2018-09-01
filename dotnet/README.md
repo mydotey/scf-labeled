@@ -3,13 +3,13 @@
 ## NuGet Package
 
 ```sh
-dotnet add package MyDotey.SCF.Labeled -v 1.4.1
+dotnet add package MyDotey.SCF.Labeled -v 1.5.0
 ```
 
 Or use a single meta package
 
 ```sh
-dotnet add package MyDotey.SCF.Bom -v 1.4.0
+dotnet add package MyDotey.SCF.Bom -v 1.5.0
 ```
 
 ## Usage

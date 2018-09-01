@@ -8,7 +8,7 @@
             <dependency>
                 <groupId>org.mydotey.scf</groupId>
                 <artifactId>scf-bom</artifactId>
-                <version>1.4.1</version>
+                <version>1.5.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
