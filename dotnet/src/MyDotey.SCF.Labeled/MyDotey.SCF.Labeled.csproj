@@ -5,7 +5,7 @@
     <AssemblyTitle>MyDotey.SCF.Labeled</AssemblyTitle>
     <AssemblyName>MyDotey.SCF.Labeled</AssemblyName>
     <PackageId>MyDotey.SCF.Labeled</PackageId>
-    <Version>1.5.0</Version>
+    <Version>1.5.1</Version>
     <Authors>koqizhao</Authors>
     <Description>for scf labeled usage</Description>
     <Copyright>koqizhao</Copyright>
@@ -21,8 +21,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MyDotey.SCF" Version="1.5.0" />
-    <PackageReference Include="MyDotey.SCF.Simple" Version="1.5.0" />
+    <PackageReference Include="MyDotey.SCF" Version="1.5.1" />
+    <PackageReference Include="MyDotey.SCF.Simple" Version="1.5.1" />
     <PackageReference Include="NLog" Version="4.5.0" />
     <PackageReference Include="System.Collections.Immutable" Version="1.5.0" />
   </ItemGroup>
