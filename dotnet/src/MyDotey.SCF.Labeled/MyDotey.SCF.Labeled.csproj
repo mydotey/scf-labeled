@@ -5,24 +5,24 @@
     <AssemblyTitle>MyDotey.SCF.Labeled</AssemblyTitle>
     <AssemblyName>MyDotey.SCF.Labeled</AssemblyName>
     <PackageId>MyDotey.SCF.Labeled</PackageId>
-    <Version>1.5.2</Version>
+    <Version>1.6.0</Version>
     <Authors>koqizhao</Authors>
     <Description>for scf labeled usage</Description>
     <Copyright>koqizhao</Copyright>
 
     <PackageTags>scf;configuration;facade;labeled</PackageTags>
     <PackageReleaseNotes>for scf labeled usage</PackageReleaseNotes>
-    <PackageIconUrl>http://numl.net/images/ico.png</PackageIconUrl>
+    <PackageIcon>http://numl.net/images/ico.png</PackageIcon>
     <PackageProjectUrl>https://github.com/mydotey/scf-labeled</PackageProjectUrl>
-    <PackageLicenseUrl>https://opensource.org/licenses/Apache-2.0</PackageLicenseUrl>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/mydotey/scf-labeled.git</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MyDotey.SCF" Version="1.5.1" />
-    <PackageReference Include="MyDotey.SCF.Simple" Version="1.5.2" />
+    <PackageReference Include="MyDotey.SCF" Version="1.6.0" />
+    <PackageReference Include="MyDotey.SCF.Simple" Version="1.6.0" />
     <PackageReference Include="NLog" Version="4.5.0" />
     <PackageReference Include="System.Collections.Immutable" Version="1.5.0" />
   </ItemGroup>

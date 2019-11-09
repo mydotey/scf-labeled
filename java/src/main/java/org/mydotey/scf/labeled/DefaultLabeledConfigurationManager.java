@@ -26,11 +26,11 @@ public class DefaultLabeledConfigurationManager extends DefaultConfigurationMana
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
-    public <K, V> V getPropertyValue(PropertyConfig<K, V> propertyConfig) {
+    protected <K, V> Tuple<V, ConfigurationSource> doGetPropertyValue(PropertyConfig<K, V> propertyConfig) {
         Objects.requireNonNull(propertyConfig, "propertyConfig is null");
 
         if (!(propertyConfig.getKey() instanceof LabeledKey))
-            return super.getPropertyValue(propertyConfig);
+            return super.doGetPropertyValue(propertyConfig);
 
         PropertyConfig<?, V> noLabelPropertyConfig = AbstractLabeledConfigurationSource
                 .removeLabels((PropertyConfig) propertyConfig);
@@ -48,14 +48,14 @@ public class DefaultLabeledConfigurationManager extends DefaultConfigurationMana
                     value = getPropertyValue((LabeledConfigurationSource) source, noLabelPropertyConfig,
                             propertyLabels.getLabels());
 
-                value = applyValueFilter(propertyConfig, value);
+                value = applyValueFilter(source, propertyConfig, value);
 
                 if (value != null)
-                    return value;
+                    return new Tuple<V, ConfigurationSource>(value, source);
             }
         }
 
-        return propertyConfig.getDefaultValue();
+        return new Tuple<V, ConfigurationSource>(propertyConfig.getDefaultValue(), null);
     }
 
     protected <K, V> V getPropertyValue(LabeledConfigurationSource source, PropertyConfig<K, V> propertyConfig,

@@ -34,13 +34,13 @@ namespace MyDotey.SCF.Labeled
                 && m.GetParameters().Length == 3).Single();
         }
 
-        public override V GetPropertyValue<K, V>(PropertyConfig<K, V> propertyConfig)
+        protected override Tuple<object, IConfigurationSource> DoGetPropertyValue<K, V>(PropertyConfig<K, V> propertyConfig)
         {
             if (propertyConfig == null)
                 throw new ArgumentNullException("propertyConfig is null");
 
             if (!(propertyConfig.Key is ILabeledKey))
-                return base.GetPropertyValue(propertyConfig);
+                return base.DoGetPropertyValue(propertyConfig);
 
             IPropertyConfig noLabelPropertyConfig =
                 AbstractLabeledConfigurationSource.MakeNoLabelConfig(propertyConfig);
@@ -58,14 +58,14 @@ namespace MyDotey.SCF.Labeled
                     else
                         value = (V)GetPropertyValue(source, noLabelPropertyConfig, propertyLabels.Labels);
 
-                    value = ApplyValueFilter(propertyConfig, value);
+                    value = ApplyValueFilter(source, propertyConfig, value);
 
                     if (!object.Equals(value, default(V)))
-                        return value;
+                        return Tuple.Create<object, IConfigurationSource>(value, source);
                 }
             }
 
-            return propertyConfig.DefaultValue;
+            return Tuple.Create<object, IConfigurationSource>(propertyConfig.DefaultValue, null);
         }
 
         protected virtual V GetPropertyValue<K, V>(ILabeledConfigurationSource source,
