@@ -5,7 +5,7 @@
 
     <groupId>org.mydotey.scf</groupId>
     <artifactId>scf-labeled</artifactId>
-    <version>1.6.1</version>
+    <version>1.6.2</version>
     <packaging>jar</packaging>
     <name>scf-labeled</name>
     <description>simple configuration facade labeled usage</description>
@@ -43,7 +43,7 @@
         <source.encoding>UTF-8</source.encoding>
         <slf4j.version>1.7.21</slf4j.version>
         <scf.version>1.6.4</scf.version>
-        <scf-simple.version>1.6.3</scf-simple.version>
+        <scf-simple.version>1.6.4</scf-simple.version>
         <guava.version>19.0</guava.version>
         <junit.version>4.12</junit.version>
         <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
